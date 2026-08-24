@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MLBB Diamond Shop</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #0b1020;
+    color: white;
+}
+
+/* HEADER */
+header {
+    background: #111a35;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ffd34d;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+nav a:hover {
+    color: #ffd34d;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 70px 20px;
+    background: linear-gradient(135deg, #172554, #0b1020);
+}
+
+.hero h1 {
+    font-size: 42px;
+    color: #ffd34d;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    color: #d8def0;
+    margin-bottom: 25px;
+}
+
+.btn {
+    border: none;
+    background: #ffd34d;
+    color: #111;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: #ffbd25;
+}
+
+
+
+
+/* SECTIONS */
+section {
+    padding: 50px 7%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #ffd34d;
+}
+
+/* CARDS */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #151e3d;
+    padding: 22px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.25);
+}
+
+.card h3 {
+    margin: 10px 0;
+}
+
+.diamond {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.price {
+    color: #ffd34d;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.skin-img {
+    height: 150px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #13c828, #752d91);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 45px;
+    margin-bottom: 12px;
+}
+
+/* PLAYER FORM */
+.player-form {
+    max-width: 500px;
+    margin: auto;
+    background: #151e3d;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.player-form input {
+    width: 100%;
+    padding: 13px;
+    margin: 8px 0 15px;
+    border: none;
+    border-radius: 7px;
+}
+
+/* CART */
+.cart {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: #ffd34d;
+    color: #111;
+    padding: 15px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.clear{
+    border: none;
+    background: #151e3d;
+    color: white;
+    padding:5px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.checkout{
+    border: none;
+    background: #151e3d;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #070b16;
+    color: #2e0de4;
+}
+
+@media(max-width:600px) {
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    nav a {
+        margin-left: 8px;
+        font-size: 13px;
+    }
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">⚔️ MLBB SHOP</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#diamonds">Diamonds</a>
+        <a href="#skins">Skins</a>
+        <a href="#" onclick="showlogout()">log out</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<div class="hero" id="home">
+    <h1>Mobile Legends Shop</h1>
+    <p>Explore diamonds and legendary skin collections.</p>
+    <button class="btn" onclick="document.getElementById('diamonds').scrollIntoView()">
+        Shop Now
+    </button>
+</div>
+
+
+<!-- DIAMONDS -->
+<section id="diamonds">
+
+    <h2 class="section-title">💎 Diamond Packages</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="diamond">💎</div>
+            <h3>86 Diamonds</h3>
+            <div class="price">FREE</div>
+            <button class="btn" onclick="addCart('86 Diamonds', 'FREE')">
+                Add
+            </button>
+        </div>
+
+        <div class="card">
+            <div class="diamond">💎</div>
+            <h3>172 Diamonds</h3>
+            <div class="price">FREE</div>
+            <button class="btn" onclick="addCart('172 Diamonds','FREE')">
+                Add
+            </button>
+        </div>
+
+        <div class="card">
+            <div class="diamond">💎</div>
+            <h3>257 Diamonds</h3>
+            <div class="price">FREE</div>
+            <button class="btn" onclick="addCart('257 Diamonds','FREE')">
+                Add
+            </button>
+        </div>
+
+        <div class="card">
+            <div class="diamond">💎</div>
+  <h3>429 Diamonds</h3>
+ <div class="price">FREE</div>
+ <button class="btn" onclick="addCart('429 Diamonds','FREE')"> Add </button>
+ </div>
+
+ <div class="card">
+            <div class="diamond">💎</div>
+  <h3>20 Diamonds</h3>
+ <div class="price">FREE</div>
+ <button class="btn" onclick="addCart('429 Diamonds', 'FREE')"> Add </button>
+ </div>
+
+
+ <div class="card">
+            <div class="diamond">💎</div>
+  <h3>55 Diamonds</h3>
+ <div class="price">FREE</div>
+ <button class="btn" onclick="addCart('429 Diamonds', 'FREE')"> Add </button>
+ </div>
+
+<div class="card">
+            <div class="diamond">💎</div>
+            <h3>570 Diamonds</h3>
+            <div class="price">FREE</div>
+            <button class="btn" onclick="addCart('257 Diamonds','FREE')">
+                Add
+            </button>
+        </div>
+
+        <div class="card">
+            <div class="diamond">💎</div>
+  <h3>1163 Diamonds</h3>
+ <div class="price">FREE</div>
+ <button class="btn" onclick="addCart('429 Diamonds', 'FREE')"> Add </button>
+ </div>
+
+ <div class="card">
+            <div class="diamond">💎</div>
+  <h3>2398 Diamonds</h3>
+ <div class="price">FREE</div>
+ <button class="btn" onclick="addCart('429 Diamonds', 'FREE')"> Add </button>
+ </div>
+
+
+ <div class="card">
+            <div class="diamond">💎</div>
+  <h3>6000 Diamonds</h3>
+ <div class="price">FREE</div>
+ <button class="btn" onclick="addCart('429 Diamonds', 'FREE')"> Add </button>
+ </div>
+
+ </div> 
+</section> 
+
+<!-- SKINS -->
+
+ <section id="skins">
+ <h2 class="section-title">🔥 Skin Collection</h2> 
+<div class="cards">
+ <div class="card"> 
+<div class="skin-img">
+    <img src="assets/alucard/alucard3.png" style="width: 100%; height: 155px;"></div>
+ <h3>LUCKYBOX SKIN<BR>ALUCARD</h3> 
+<div class="price">FREE</div> 
+<button class="btn" onclick="addCart('LUCKYBOX SKIN ALUCARD','FREE')"> Add </button>
+ </div> 
+
+
+<div class="card"> 
+<div class="skin-img">
+     <img src="assets/Alice1.jpg" style="width: 100%; height: 155px;">
+</div> 
+<h3>LUCKYBOX SKIN<br>Alice</h3>
+ <div class="price">FREE </div> 
+<button class="btn" onclick="addCart('LUCKY SKIN Alice','FREE')"> Add </button>
+ </div> 
+
+
+
+
+<div class="card"> 
+<div class="skin-img">
+     <img src="assets/franco1.jpg" style="width: 100%; height: 155px;">
+</div>
+ <h3>COLLECTOR SKIN <br>Franco</h3> 
+<div class="price">FREE</div>
+ <button class="btn" onclick="addCart('COLLECTOR SKIN Franco', 'FREE')"> Add </button> 
+</div>
+
+
+
+ <div class="card"> 
+<div class="skin-img">
+     <img src="assets/gusio1n.jpg" style="width:100%;height: 155px;">
+</div>
+ <h3>COLLECTOR SKIN<BR> Gusion</h3> 
+<div class="price">FREE</div>
+ <button class="btn" onclick="addCart('COLLECTOR SKIN Gusion', 'FREE')"> Add </button> 
+</div>
+
+
+
+ <div class="card"> 
+<div class="skin-img">
+     <img src="assets/Lancelot.jpg" style="width: 100%; height: 155px;">
+</div>
+ <h3>MASKED KNIGHT SKIN<BR>Lancelot</h3> 
+<div class="price">FREE</div>
+ <button class="btn" onclick="addCart('MASKED KNIGHT SKIN Lancelot','FREE')"> Add </button> 
+</div>
+
+
+
+ <div class="card"> 
+<div class="skin-img">
+     <img src="assets/karina/karina2.png" style="width: 100%; height: 155px;">
+</div>
+ <h3>BLOOD MOON SKIN<BR>KARINA</h3> 
+<div class="price">FREE</div>
+ <button class="btn" onclick="addCart('BLOOD MOON SKIN KARINA', 'FREE')"> Add </button> 
+</div>
+
+<div class="card"> 
+<div class="skin-img">
+     <img src="assets/nana1.jpg" style="width: 100%; height: 155px;">
+</div>
+ <h3>SEASON 1 SKIN<BR>Nana</h3> 
+<div class="price">FREE </div>
+ <button class="btn" onclick="addCart('SEASON 1 SKIN Nana', 'FREE')"> Add </button> 
+</div>
+
+<div class="card"> 
+<div class="skin-img">
+     <img src="assets/alucard/alucard2.png" style="width: 100%; height: 155px;">
+</div>
+ <h3>STARLIGHT SKIN<BR>ALUCARD</h3> 
+<div class="price">FREE </div>
+ <button class="btn" onclick="addCart('STARLIGHT SKIN ALUCARD', 'FREE')"> Add </button> 
+</div>
+
+ <div class="card"> 
+<div class="skin-img">
+     <img src="assets/alice2.jpg" style="width: 100%; height: 155px;">
+</div>
+ <h3>EPIC SKIN<BR>ALICE</h3> 
+<div class="price">FREE</div>
+ <button class="btn" onclick="addCart('EPIC SKIN ALICE', 'FREE')"> Add </button> 
+</div>
+
+
+<div class="card"> 
+<div class="skin-img">
+     <img src="assets/Franco2.jpg" style="width: 100%; height: 155px;">
+</div>
+ <h3>LEGEND SKIN<BR>FRANCO</h3> 
+<div class="price">FREE</div>
+ <button class="btn" onclick="addCart('LEGEND SKIN FRANCO', 'FREE')"> Add </button> 
+</div>
+
+<div class="card"> 
+<div class="skin-img">
+     <img src="assets/gusion2.jpg" style="width: 100%; height: 155px;">
+</div>
+ <h3>Limited-time Event<BR>Gusion</h3> 
+<div class="price">FREE </div>
+ <button class="btn" onclick="addCart('Limited-time Eventn Gusion', 'FREE')"> Add </button> 
+</div>
+
+<div class="card"> 
+<div class="skin-img">
+     <img src="assets/miya/miya2.png" style="width: 100%; height: 155px;">
+</div>
+ <h3>LEGEND SKIN<BR>MIYA</h3> 
+<div class="price">FREE</div>
+ <button class="btn" onclick="addCart('LEGEND SKIN MIYA','FREE')"> Add </button> 
+</div>
+
+<div class="card"> 
+<div class="skin-img">
+     <img src="assets/granger.webp" style="width: 100%; height: 155px;">
+</div>
+ <h3>LEGEND SKIN<BR>GRANGER</h3> 
+<div class="price">FREE</div>
+ <button class="btn" onclick="addCart('LEGEND SKIN GRANGER', 'FREE')"> Add </button> 
+</div>
+
+
+<div class="card"> 
+<div class="skin-img">
+     <img src="assets/nolan.webp" style="width: 100%; height: 155px;">
+</div>
+ <h3>VOIDWALKER SKIN<BR>N0LAN</h3> 
+<div class="price">FREE</div>
+ <button class="btn" onclick="addCart('VOIDWALKER SKIN N0LAN', 'FREE')"> Add </button> 
+</div>
+
+
+<div class="card"> 
+<div class="skin-img">
+     <img src="assets/Julian.webp" style="width: 100%; height: 155px;">
+</div>
+ <h3>MEGUMI FUSHIGURO SKIN<BR>JULIAN</h3> 
+<div class="price">FREE</div>
+ <button class="btn" onclick="addCart('VOIDWALKER SKIN N0LAN','FREE')"> Add </button> 
+</div>
+
+
+
+</section>
+  
+<!-- CART BUTTON -->
+ <div class="cart" onclick="viewCart()"> 🛒 Cart:
+ <span id="cartCount">0</span>
+ <button class="checkout" onclick="checkout()">Checkout</button>
+   <button class="clear" onclick="clearCart()">
+                Clear Cart
+            </button>
+ </div>
+ 
+   
+
+<script> 
+let cart = []; 
+
+function clearCart() {
+
+    if(cart.length===0){
+        alert("your cart is empty");
+        return;
+    }
+    alert("clearCart successful! This is only a demo.");
+    
+    cart.length=0;
+    document.getElementById("cartCount").innerText=0;
+   
+    
+}
+function checkout() {
+    if(cart.length===0){
+        alert("your cart is empty");
+        return;
+    }
+    cart.length=0;
+    document.getElementById("cartCount").innerText=0;
+   window.location.href="id login.html";
+}
+
+function showlogout() 
+{ 
+window.location.href="ml login.html";
+ }
+ 
+ 
+/* ADD TO CART */ 
+function addCart(name, price) { 
+cart.push({ name: name, price: price }); 
+document.getElementById("cartCount").innerText = cart.length; 
+alert(name + " added to cart!"); }
+
+ /* VIEW CART */ 
+function viewCart() {
+ if (cart.length === 0) 
+{ 
+ return; } 
+let total = 0; 
+let list = "Your Cart:\n\n"; 
+cart.forEach(function(item, index) { 
+list += (index + 1) + ". " + item.name + " - " + item.price + "\n";
+ total += item.price; });
+ list += "\nTOTAL:FREE "; alert(list); }
+ 
+ 
+</script>
+ </body> 
+</html>

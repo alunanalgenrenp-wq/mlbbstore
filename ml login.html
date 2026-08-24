@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body{
+        margin: 0;
+        min-width: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #101827;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .login-box{
+        width: 330px;
+        padding: 30px;
+        background: #1d2738;
+        border-radius: 15px;
+        color: white;
+        text-align: center;
+        box-shadow: 0 0 20px #00bfff;
+    }
+    input{
+        width: 90ps;
+        padding: 12px;
+        margin: 8px;
+        border: none;
+        border-radius: 8px;
+    }
+    button{
+        width: 96%;
+        padding: 12px;
+        margin-top: 10px;
+        border: none;
+        border-radius: 8px;
+        background: #00aaff;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    #messge{
+        margin: 15px;
+    }
+
+    
+</style>
+</head>
+
+<body>
+    <div class="login-box">
+        <h2>MLBB SHOP</h2>
+        <p>diamond & skin store</p>
+       <h2>Login</h2>
+ 
+  
+    
+    <input type="text"  id="username" placeholder="email">
+     <input type="password"  id="password" placeholder="password">
+     <button onclick="clicklogin()"> Log In</button>
+   <p id="message"></p>
+   </div>
+   <script>
+    function clicklogin(){
+        var user=document.getElementById("username").value;
+        var pass=document.getElementById("password").value;
+       
+        if(user == "admin" && pass =="143"){
+          window.location.href="malakasang.html";
+        }
+        else if( user == ""|| pass == ""){
+            document.getElementById("message").innerHTML="field the blank!";
+            document.getElementById("message").style.color ="green";
+            
+        }else{
+             document.getElementById("message").innerHTML="wrong username or password!";
+            document.getElementById("message").style.color ="red";
+        }
+        
+    }
+   </script>
+
+
+</body>
+</html>

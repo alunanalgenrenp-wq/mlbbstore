@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: #1032b0;
+        }
+        /* PLAYER FORM */
+.player-form {
+    max-width: 500px;
+    margin: auto;
+    background: #151e3d;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.player-form input {
+    width: 90%;
+    padding: 13px;
+    margin: 8px 0 15px;
+    border: none;
+    border-radius: 7px;
+}
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #ffd34d;
+}
+
+.btn {
+    border: none;
+    background: #ffd34d;
+    color: #111;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: #ffbd25;
+}
+    </style>
+</head>
+<body>
+    </section>
+ <!-- PLAYER INFORMATION --> 
+  
+<section> 
+<h2 class="section-title">🎮 Player Information</h2> 
+<div class="player-form"> 
+<input type="number" id="playerId" placeholder="Enter Player ID" >
+ <input type="number" id="serverId" placeholder="Enter Server ID" > 
+<button class="btn" onclick="checkPlayer()"> Continue </button>
+ <p id="playerMessage" style="margin-top:15px;"></p> 
+</div>
+ </section> 
+
+</form>
+
+    <script>
+        function login() 
+{ 
+let username = document.getElementById("username").value; 
+let password = document.getElementById("password").value; 
+let message = document.getElementById("loginMessage"); 
+if (username === "" || password === "") 
+{ 
+message.innerText = "Please enter your username and password.";
+ message.style.color = "#ff7777"; }
+ else { 
+window.location.href="success.html";
+message.style.color = "#6cff9a";
+ } 
+} 
+ 
+ /* PLAYER CHECK */ 
+function checkPlayer() { 
+let player = document.getElementById("playerId").value;
+ let server = document.getElementById("serverId").value; 
+let message = document.getElementById("playerMessage"); 
+if (player === "" || server === "") { 
+message.innerText = "Please enter your Player ID and Server ID."; 
+message.style.color = "#ff7777"; 
+} else { window.location.href="success.html";
+ 
+}
+ } 
+    </script>
+</body>
+</html>
